@@ -4,7 +4,7 @@
 cat list
 
 # 运行 Nezha
-[[ -n "$NEZHA_SERVER" && -n "$NEZHA_PORT" && -n "$NEZHA_KEY" ]] && nohup ./nezha-agent -s NEZHA_SERVER_CHANGE:NEZHA_PORT_CHANGE -p NEZHA_KEY_CHANGE TLS_CHANGE >/dev/null 2>&1 &
+# [[ -n "$NEZHA_SERVER" && -n "$NEZHA_PORT" && -n "$NEZHA_KEY" ]] && nohup ./nezha-agent -s NEZHA_SERVER_CHANGE:NEZHA_PORT_CHANGE -p NEZHA_KEY_CHANGE TLS_CHANGE >/dev/null 2>&1 &
 
 # 运行 Argo
 if [ -e tunnel.yml ]; then 
