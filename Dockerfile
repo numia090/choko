@@ -91,12 +91,12 @@ Clash: \n\
 ******************************************* " > list &&\
     sed -i "s#UUID#$UUID#g; s#WSPATH#$WSPATH#g;" config.json &&\
     TLS=${NEZHA_TLS:+'--tls'} &&\
-    sed -i "s#NEZHA_SERVER_CHANGE#$NEZHA_SERVER#g; s#NEZHA_PORT_CHANGE#$NEZHA_PORT#g; s#NEZHA_KEY_CHANGE#$NEZHA_KEY#g; s#TLS_CHANGE#$TLS#g; s#WEB_USERNAME_CHANGE#$WEB_USERNAME#g; s#WEB_PASSWORD_CHANGE#$WEB_PASSWORD#g" entrypoint.sh &&\
+    sed -i "s#TLS_CHANGE#$TLS#g; s#WEB_USERNAME_CHANGE#$WEB_USERNAME#g; s#WEB_PASSWORD_CHANGE#$WEB_PASSWORD#g" entrypoint.sh &&\
     sed -i "s#WEB_USERNAME_CHANGE#$WEB_USERNAME#g; s#WEB_PASSWORD_CHANGE#$WEB_PASSWORD#g; s#WEB_DOMAIN_CHANGE#$WEB_DOMAIN#g" server.js &&\
     adduser --disabled-password  --no-create-home --uid 10001 --ingroup choreo choreouser &&\
     usermod -aG sudo choreouser &&\
     chown -R 10001:10001 web.js entrypoint.sh config.json &&\
-    chmod +x web.js entrypoint.sh nezha-agent ttyd &&\
+    chmod +x web.js entrypoint.sh ttyd &&\
     npm install -r package.json
 
 ENTRYPOINT [ "node", "server.js" ]
